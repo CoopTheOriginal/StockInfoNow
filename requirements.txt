@@ -29,4 +29,4 @@ webtest
 Flask-Script
 
 # Other
-requests-2.11.0
+requests==2.11.0
