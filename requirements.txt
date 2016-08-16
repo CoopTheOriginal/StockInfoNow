@@ -27,3 +27,6 @@ webtest
 
 # Management script
 Flask-Script
+
+# Other
+requests-2.11.0
