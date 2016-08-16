@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stock Info Now</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/foundation.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
+<link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
+
+<script src="modernizr.min.js"></script>
+<script
+  type="text/javascript"
+   src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5"
+  ></script>
+
+<script>
+  var ticker = '{{ ticker_dict["ticker"] }}';
+  var c_serverUrl = "https://spotfire.cloud.tibco.com/spotfire/wp/";
+  var c_analysisPath = "/users/zackjcooper/Stock Prices";
+  var c_analysisPath2 = "/users/zackjcooper/EPS";
+  var c_analysisPath3 = "/users/zackjcooper/Net Income";
+  var c_analysisPath4 = "/users/zackjcooper/Sector Comparison";
+
+  var c_parameters = "";  //Optional configuration block
+  var customization = new spotfire.webPlayer.Customization();  //Optional configuration settings
+
+  var app;
+
+  var c_reloadAnalysisInstance = false;
+
+  window.onload = function()
+      {
+  app = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath, c_parameters, c_reloadAnalysisInstance);
+  app2 = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath2, c_parameters, c_reloadAnalysisInstance);
+  app3 = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath3, c_parameters, c_reloadAnalysisInstance);
+  app4 = new spotfire.webPlayer.Application(c_serverUrl, customization, c_analysisPath4, c_parameters, c_reloadAnalysisInstance);
+
+  //Hide UI elements
+  customization.showDodPanel = false;
+  customization.showStatusBar = false;
+  customization.showToolBar = false;
+  customization.showPageNavigation = false;
+  customization.showClose = false;
+  customization.showAnalysisInfo = true;
+  customization.showExportFile = true;
+  customization.showExportVisualization = true;
+  customization.showUndoRedo = true;
+  customization.showFilterPanel = false;
+
+  var viewOne = app.openDocument("viz1", ticker, customization);
+  var viewTwo = app2.openDocument("viz2", ticker, customization);
+  var viewTwo = app3.openDocument("viz3", ticker, customization);
+  var viewTwo = app4.openDocument("viz4", ticker, customization);
+
+
+  }
+
+</script>
+
+<style>
+  #viz1 {
+    height: 400px;
+  }
+  #viz2 {
+    height: 300px;
+  }
+  #viz3 {
+    height: 300px;
+  }
+  #viz4 {
+    height: 300px;
+  }
+</style>
+
+</head>
+
+<body>
+<div class="row">
+  <div class="large-3 columns" style="width:250px">
+    <h1 style="margin-bottom:0px"><img src="http://www.redleafco.com/wp-content/uploads/2014/02/TIBCO-1024x250.jpg" height="100"/></h1>
+  </div>
+  <div class="large-9 columns">
+    <ul class="menu align-right">
+    <li><a href="http://www.tibco.com/products" target="_blank" class="small secondary button">PRODUCTS</a></li>
+    <li><a href="http://www.tibco.com/industries" target="_blank" class="small secondary button">INDUSTRIES</a></li>
+    <li><a href="http://www.tibco.com/services" target="_blank" class="small secondary button">SERVICES</a></li>
+    <li><a href="http://www.tibco.com/customers" target="_blank" class="small secondary button">CUSTOMERS</a></li>
+    <li><a href="http://www.tibco.com/partners" target="_blank" class="small secondary button">PARTNERS</a></li>
+    <li><a href="http://www.tibco.com/company" target="_blank" class="small secondary button">ABOUT US</a></li>
+    <li><a href="http://spotfire.tibco.com/trial?_ga=1.199290350.1189276913.1470409208" target="_blank" class="small button">TRY NOW</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="row" >
+  <div class="small-10 small-centered columns">
+    <div style="text-align: center; font-size:2.5rem">{{ ticker_dict['company_name'] }}</div>
+    <div style="text-align: center; font-size:1.5625rem">Stock Price</div>
+    <div id='viz1'></div>
+    <p>{{ ticker_dict['chart_one_narrative'] }}</p>
+  </div>
+</div>
+<hr/>
+
+<div class="row">
+
+  <div class="large-4 columns">
+    <h4 style="text-align:center">Earnings Per Share</h4>
+    <div id='viz2'></div>
+    <p>{{ ticker_dict['chart_two_narrative'] }}</p>
+  </div>
+
+  <div class="large-4 columns">
+    <h4 style="text-align:center">Net Income</h4>
+    <div id='viz3'></div>
+    <p>{{ ticker_dict['chart_three_narrative'] }}</p>
+  </div>
+
+  <div class="large-4 columns">
+    <h4 style="text-align:center">Sector Returns Summary</h4>
+    <div id='viz4'></div>
+    <p>{{ ticker_dict['chart_four_narrative'] }}</p>
+  </div>
+
+</div>
+
+<br>
+<div class="row">
+  <div class="large-12 columns">
+    <div class="panel">
+
+      <h4>Get in touch!</h4>
+      <div class="row">
+
+        <div class="large-9 columns">
+          <p>We'd love to hear from you in person.</p>
+        </div>
+        <div class="large-3 columns">
+          <a href="http://spotfire.tibco.com/trial?_ga=1.165724926.1189276913.1470409208" class="radius button right">Contact Us</a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer class="row">
+<div class="large-12 columns">
+<hr/>
+<div class="row">
+  <div class="large-3 columns">
+    <p>&copy; Stock Info Now Corporation</p>
+  </div>
+  <div class="large-9 columns">
+    <ul class="menu align-right" style="font-size:12px">
+      <li><a href="http://www.tibco.com/products">PRODUCTS</a></li>
+      <li><a href="http://www.tibco.com/industries">INDUSTRIES</a></li>
+      <li><a href="http://www.tibco.com/services">SERVICES</a></li>
+      <li><a href="http://www.tibco.com/customers">CUSTOMERS</a></li>
+      <li><a href="http://www.tibco.com/partners">PARTNERS</a></li>
+      <li><a href="http://www.tibco.com/company">ABOUT US</a></li>
+      <li><a href="http://spotfire.tibco.com/trial?_ga=1.199290350.1189276913.1470409208">TRY NOW</a></li>
+    </ul>
+  </div>
+</div>
+</div>
+</footer>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.3/js/foundation.min.js"></script>
+<script>
+      $(document).foundation();
+    </script>
+</body>
+</html>
