@@ -1,7 +1,5 @@
 from flask import Blueprint, flash, render_template
 import json, os, requests
-from multiprocessing import Pool              # For speeding up WS to S3 process
-from multiprocessing.dummy import Pool as ThreadPool
 
 
 stockapp = Blueprint("stockapp", __name__)
@@ -17,6 +15,7 @@ def flash_errors(form, category="warning"):
 
 @stockapp.route("/<ticker>")
 def index(ticker):
+    print(ticker)
     ticker = ticker.upper()
     ticker_dict = get_ticker_info(ticker)
     return render_template('index.html', ticker_dict=ticker_dict)
@@ -33,12 +32,16 @@ def get_ticker_info(ticker):
             ticker_info = {'ticker': ticker, 'company_name': values['company_name']}
             ticker_info['chart_one_narrative'] = wordsmith(values['chart_one_data'],
                                                            "simplr-stock-price")
+            print('we have 1 wordsmith response')
             ticker_info['chart_two_narrative'] = wordsmith(values['chart_two_data'],
                                                            "simplr-eps")
+            print('we have 2 wordsmith responses')
             ticker_info['chart_three_narrative'] = wordsmith(values['chart_three_data'],
                                                              "simplr-net-income")
+            print('we have 3 wordsmith responses')
             ticker_info['chart_four_narrative'] = wordsmith(values['chart_four_data'],
                                                             "simplr-sector-comparison")
+            print('we have 4 wordsmith responses')
             return ticker_info
 
 

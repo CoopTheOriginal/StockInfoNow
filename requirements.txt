@@ -26,7 +26,7 @@ pytest>=2.6.3
 webtest
 
 # Management script
-Flask-Script
+Flask-Script==2.0.5
 
 # Other
 requests==2.11.0
