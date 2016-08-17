@@ -30,3 +30,4 @@ Flask-Script==2.0.5
 
 # Other
 requests==2.11.0
+gunicorn==19.6.0

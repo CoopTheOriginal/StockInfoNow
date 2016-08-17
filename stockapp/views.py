@@ -12,9 +12,15 @@ def flash_errors(form, category="warning"):
             flash("{0} - {1}"
                     .format(getattr(form, field).label.text, error), category)
 
+@stockapp.route("/")
+def index():
+    print('home page')
+
+    return 'home page!!!'
+
 
 @stockapp.route("/<ticker>")
-def index(ticker):
+def ticker_page(ticker):
     print(ticker)
     ticker = ticker.upper()
     ticker_dict = get_ticker_info(ticker)
