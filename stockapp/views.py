@@ -1,5 +1,5 @@
 from flask import Blueprint, flash, render_template
-import json, os, requests
+import json, os, requests, sys
 
 
 stockapp = Blueprint("stockapp", __name__)
@@ -33,15 +33,19 @@ def get_ticker_info(ticker):
             ticker_info['chart_one_narrative'] = wordsmith(values['chart_one_data'],
                                                            "simplr-stock-price")
             print('we have 1 wordsmith response')
+            sys.stdout.flush()
             ticker_info['chart_two_narrative'] = wordsmith(values['chart_two_data'],
                                                            "simplr-eps")
             print('we have 2 wordsmith responses')
+            sys.stdout.flush()
             ticker_info['chart_three_narrative'] = wordsmith(values['chart_three_data'],
                                                              "simplr-net-income")
             print('we have 3 wordsmith responses')
+            sys.stdout.flush()
             ticker_info['chart_four_narrative'] = wordsmith(values['chart_four_data'],
                                                             "simplr-sector-comparison")
             print('we have 4 wordsmith responses')
+            sys.stdout.flush()
             return ticker_info
 
 
