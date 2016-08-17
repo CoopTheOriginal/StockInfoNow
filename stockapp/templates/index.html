@@ -11,11 +11,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/normalize.css') }}">
 <link href='http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css' rel='stylesheet' type='text/css'>
 
-<script src="modernizr.min.js"></script>
-<script
-  type="text/javascript"
-   src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5"
-  ></script>
+<script type="text/javascript" src="https://spotfire.cloud.tibco.com/spotfire/wp/GetJavaScriptApi.ashx?Version=7.5"></script>
 
 <script>
   var ticker = '{{ ticker_dict["ticker"] }}';
@@ -56,9 +52,7 @@
   var viewTwo = app3.openDocument("viz3", ticker, customization);
   var viewTwo = app4.openDocument("viz4", ticker, customization);
 
-
   }
-
 </script>
 
 <style>
@@ -81,7 +75,13 @@
 <body>
 <div class="row">
   <div class="large-3 columns" style="width:250px">
-    <h1 style="margin-bottom:0px"><img src="http://www.redleafco.com/wp-content/uploads/2014/02/TIBCO-1024x250.jpg" height="100"/></h1>
+
+    <h1 style="margin-bottom:0px">
+      <a href="http://www.tibco.com/">
+        <img src="http://www.redleafco.com/wp-content/uploads/2014/02/TIBCO-1024x250.jpg" height="100"/>
+      </a>
+    </h1>
+
   </div>
   <div class="large-9 columns">
     <ul class="menu align-right">
