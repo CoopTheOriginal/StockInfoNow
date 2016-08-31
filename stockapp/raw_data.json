@@ -337,7 +337,7 @@
       },
       "chart_four_data":{
          "Ticker":"XOM",
-         "Company Name":"Exxon Mobil",
+         "Stock Name":"Exxon Mobil",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
@@ -387,7 +387,7 @@
       },
       "chart_four_data":{
          "Ticker":"GE",
-         "Company Name":"General Electric",
+         "Stock Name":"General Electric",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
@@ -437,7 +437,7 @@
       },
       "chart_four_data":{
          "Ticker":"CVX",
-         "Company Name":"Chevron",
+         "Stock Name":"Chevron",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
@@ -487,7 +487,7 @@
       },
       "chart_four_data":{
          "Ticker":"OXY",
-         "Company Name":"Occidental Petroleum",
+         "Stock Name":"Occidental Petroleum",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
@@ -537,7 +537,7 @@
       },
       "chart_four_data":{
          "Ticker":"PSX",
-         "Company Name":"Phillips 66",
+         "Stock Name":"Phillips 66",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
@@ -587,7 +587,7 @@
       },
       "chart_four_data":{
          "Ticker":"VLO",
-         "Company Name":"Valero Energy",
+         "Stock Name":"Valero Energy",
          "Sector Name":"energy",
          "One Week Return":0.003591954,
          "One Month Return":0.036657778,
